@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { CompanyModule } from './company/company.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UserModule } from './user/user.module';
+import { StationModule } from './station/station.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { UserModule } from './user/user.module';
       'mongodb+srv://MK:123456789mK14@cluster0.c4uwc.gcp.mongodb.net',
     ),
     UserModule,
+    StationModule,
   ],
   controllers: [AppController],
   providers: [AppService],
