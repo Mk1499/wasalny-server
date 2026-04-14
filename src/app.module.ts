@@ -5,6 +5,7 @@ import { CompanyModule } from './company/company.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UserModule } from './user/user.module';
 import { StationModule } from './station/station.module';
+import { LineModule } from './line/line.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { StationModule } from './station/station.module';
     ),
     UserModule,
     StationModule,
+    LineModule,
   ],
   controllers: [AppController],
   providers: [AppService],
