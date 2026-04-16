@@ -4,10 +4,10 @@ import { Company } from 'src/company/company.schema';
 import { Station } from 'src/station/station.schema';
 import { User } from 'src/user/user.schema';
 
-export type LineDocument = Line & Document;
+export type RouteDocument = Route & Document;
 
 @Schema({ timestamps: true })
-export class Line {
+export class Route {
   @Prop({ required: true })
   nameEn: string;
   @Prop({ required: true })
@@ -18,6 +18,8 @@ export class Line {
   driver: Types.ObjectId;
   @Prop({ required: true, type: [Types.ObjectId], ref: Station.name })
   stations: Types.ObjectId[];
+  @Prop({ type: [Types.ObjectId], ref: User.name })
+  riders: Types.ObjectId[];
 }
 
-export const LineSchema = SchemaFactory.createForClass(Line);
+export const RouteSchema = SchemaFactory.createForClass(Route);

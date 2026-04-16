@@ -5,7 +5,9 @@ import { CompanyModule } from './company/company.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UserModule } from './user/user.module';
 import { StationModule } from './station/station.module';
-import { LineModule } from './line/line.module';
+import { RouteModule } from './route/route.module';
+import { DriverModule } from './driver/driver.module';
+import { CompanyAdminModule } from './company-admin/company-admin.module';
 
 @Module({
   imports: [
@@ -15,7 +17,9 @@ import { LineModule } from './line/line.module';
     ),
     UserModule,
     StationModule,
-    LineModule,
+    RouteModule,
+    DriverModule,
+    CompanyAdminModule,
   ],
   controllers: [AppController],
   providers: [AppService],
