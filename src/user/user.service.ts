@@ -15,20 +15,26 @@ export class UserService {
   }
 
   findAll() {
-    return this.userModel.find().exec();
+    return this.userModel.find().select('-password').populate('company').exec();
   }
 
-  findOne(id: number) {
-    return this.userModel.findById(id).exec();
-  }
-
-  update(id: number, updateUserDto: UpdateUserDto) {
+  findOne(id: string) {
     return this.userModel
-      .findByIdAndUpdate(id, updateUserDto, { new: true })
+      .findById(id)
+      .select('-password')
+      .populate('company')
       .exec();
   }
 
-  remove(id: number) {
+  update(id: string, updateUserDto: UpdateUserDto) {
+    return this.userModel
+      .findByIdAndUpdate(id, updateUserDto, { new: true })
+      .select('-password')
+      .populate('company')
+      .exec();
+  }
+
+  remove(id: string) {
     return this.userModel.findByIdAndDelete(id).exec();
   }
 }
